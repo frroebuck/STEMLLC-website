@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STEM – Striving To Engage Minds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#12306B; --sky:#8AB4DA; --blue:#2F6FF0; --mist:#D3DBF1; --white:#fff;
+  --bg:#F3F7FC; --surface:#fff; --text:#12306B; --muted:#44598A; --line:#C9D6EA; --tile:#E4ECF8;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0B1B3D;--surface:#12285A;--text:#E8EEFA;--muted:#A9B9DB;--line:#2A4682;--tile:#17306A;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0B1B3D;--surface:#12285A;--text:#E8EEFA;--muted:#A9B9DB;--line:#2A4682;--tile:#17306A;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.0625rem;line-height:1.6}
+h1,h2,h3{font-family:'Fredoka','Trebuchet MS',system-ui,sans-serif;line-height:1.15;margin:0;font-weight:600}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+header.top{background:#BFD8F0;color:var(--navy)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.9rem;padding-bottom:.9rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.35rem}
+.brand img{width:44px;height:44px;border-radius:50%}
+nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:600;color:var(--navy)}
+nav a:hover{color:var(--blue);text-decoration:underline}
+.hero{background:#BFD8F0;color:var(--navy);padding:3rem 0 4.5rem;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700}
+.hero p{color:#2A4478;max-width:34rem;margin:1.2rem 0 2rem;font-size:1.15rem}
+.btn{display:inline-block;background:var(--blue);color:var(--white);padding:.85rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;font-family:'Fredoka',sans-serif;font-size:1.05rem;border:2px solid var(--blue)}
+.btn:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.btn.ghost{background:transparent;border-color:var(--navy);color:var(--navy);margin-left:.6rem}
+.badge{position:relative;justify-self:center;width:min(100%,24rem);aspect-ratio:1}
+.badge::before{content:"";position:absolute;inset:-6%;border-radius:50%;background:#fff;opacity:.55}
+.badge img{position:relative;width:100%;height:100%;object-fit:contain;display:block}
+section{padding:4.5rem 0}
+h2{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:38rem;margin:0 0 2.5rem}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.tile{background:var(--tile);border-radius:1.25rem;padding:1.5rem 1.3rem 1.6rem;min-height:15rem;display:flex;flex-direction:column;justify-content:space-between}
+.tile .big{font-family:'Fredoka',sans-serif;font-weight:700;font-size:3.4rem;line-height:1;color:var(--blue)}
+.tile:nth-child(2) .big{color:var(--sky)}
+.tile:nth-child(3) .big{color:var(--blue)}
+.tile:nth-child(4) .big{color:var(--sky)}
+.tile h3{font-size:1.3rem;margin-bottom:.3rem}
+.tile p{margin:0;color:var(--muted);font-size:.98rem}
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.group{background:var(--surface);border:2px dashed var(--sky);border-radius:1.25rem;padding:1.5rem 1.4rem}
+.group h3{font-size:1.3rem;margin:.9rem 0 .4rem}
+.group p{margin:0;color:var(--muted)}
+.soon{display:inline-block;background:var(--blue);color:var(--white);padding:.2rem .75rem;border-radius:999px;font-size:.85rem;font-weight:700}
+@media (max-width:860px){.groups{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:s;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;border-top:4px solid var(--blue);padding-top:1rem}
+.steps li::before{content:counter(s);font-family:'Fredoka',sans-serif;font-weight:700;font-size:2rem;color:var(--blue);display:block;line-height:1;margin-bottom:.5rem}
+.steps h3{font-size:1.25rem;margin-bottom:.4rem}
+.steps p{margin:0;color:var(--muted)}
+.about{background:var(--surface);border-block:1px solid var(--line)}
+.about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:center}
+.about blockquote{margin:0;font-family:'Fredoka',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;line-height:1.2;color:var(--blue)}
+.about p{color:var(--muted);margin:0 0 1rem;max-width:38rem}
+.contact{background:var(--sky);color:var(--navy);text-align:center}
+.contact h2{color:var(--navy)}
+.contact p{max-width:32rem;margin:0 auto 1.8rem}
+.contact .btn{background:var(--navy);border-color:var(--navy)}
+.contact .btn:hover{background:var(--white);color:var(--navy);border-color:var(--white)}
+footer{background:var(--navy);color:var(--mist);padding:1.8rem 0;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+@media (max-width:860px){
+  .hero .wrap,.about .wrap{grid-template-columns:1fr}
+  .badge{width:min(80%,18rem);order:-1}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .btn.ghost{margin:.8rem 0 0}
+}
+@media (max-width:480px){.tiles{grid-template-columns:1fr}.tile{min-height:0;gap:1rem}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="logo.png" alt="">STEM</a>
+    <nav aria-label="Main">
+      <a href="#subjects">Subjects</a>
+      <a href="#groups">Group learning</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Tutoring that gets students excited to learn.</h1>
+        <p>Striving To Engage Minds helps students from 1st grade through 12th build confidence in math, science, writing, and research, one session at a time.</p>
+        <a class="btn" href="#contact">Book a session</a><a class="btn ghost" href="#subjects">See subjects</a>
+      </div>
+      <div class="badge"><img src="logo.png" alt="STEM Striving To Engage Minds logo: a smiling lab flask wearing glasses. Investing in Future Excellence."></div>
+    </div>
+  </div>
+
+  <section id="subjects">
+    <div class="wrap">
+      <h2>What we teach</h2>
+      <p class="lead">Every session is built around how the student learns best, so the material finally clicks.</p>
+      <div class="tiles">
+        <div class="tile"><span class="big" aria-hidden="true">1–12</span><div><h3>Math</h3><p>Grades 1 through 12. Foundations to advanced high school courses, explained step by step.</p></div></div>
+        <div class="tile"><span class="big" aria-hidden="true">1–12</span><div><h3>Science</h3><p>Grades 1 through 12. Biology, chemistry, physics, and the habit of asking why.</p></div></div>
+        <div class="tile"><span class="big" aria-hidden="true">6–12</span><div><h3>Writing</h3><p>Middle and high school. Clear essays, stronger arguments, and confident editing.</p></div></div>
+        <div class="tile"><span class="big" aria-hidden="true">6–12</span><div><h3>Research skills</h3><p>Middle and high school. Finding reliable sources, judging them, and citing them well.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="groups" style="padding-top:0">
+    <div class="wrap">
+      <h2>Group learning and college prep</h2>
+      <p class="lead">We’re growing. These programs are on the way.</p>
+      <div class="groups">
+        <div class="group"><span class="soon">Coming soon</span><h3>Study groups</h3><p>Small groups where students work through material together and learn from each other.</p></div>
+        <div class="group"><span class="soon">Coming soon</span><h3>Homeschool groups</h3><p>Math, science, writing, and research classes for homeschool families, built around your schedule.</p></div>
+        <div class="group"><span class="soon">Coming soon</span><h3>Intro college courses</h3><p>Support for first-year college math and science.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:0">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="lead">Getting started takes three steps.</p>
+      <ol class="steps">
+        <li><h3>Tell us about your student</h3><p>Share their grade, subjects, and where they’re struggling or want to grow.</p></li>
+        <li><h3>Meet your tutor</h3><p>We match your student with a plan and a schedule that fits your family.</p></li>
+        <li><h3>Watch confidence grow</h3><p>Regular sessions, clear progress updates, and homework that makes sense.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <blockquote>Investing in future excellence.</blockquote>
+      <div>
+        <h2>About STEM</h2>
+        <p>We believe every student can enjoy learning when it’s engaging and personal. Striving To Engage Minds was started to give students patient, encouraging support in the subjects that shape their future.</p>
+        <p>Add your story, credentials, and teaching approach here.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Ready to get started?</h2>
+      <p>Send a message with your student’s grade and subject, and we’ll reply with available times.</p>
+      <a class="btn" href="mailto:hello@example.com">Email us</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Striving To Engage Minds</span>
+    <span>Investing in Future Excellence</span>
+  </div>
+</footer>
+</body>
+</html>
